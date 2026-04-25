@@ -1,6 +1,9 @@
 'use strict';
 
 function findExpression(value) {
+    if (!Number.isFinite(value) || !Number.isInteger(value) || value < 1) {
+        return null;
+    }
     function tryPath(current, expression) {
         if (current === value) return expression;
         if (current > value) return null;
@@ -13,4 +16,4 @@ function findExpression(value) {
     return tryPath(1, '1');
 }
 
-console.log(findExpression(13));
+console.log(findExpression(57));
